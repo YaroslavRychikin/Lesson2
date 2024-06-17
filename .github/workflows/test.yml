@@ -22,6 +22,16 @@ jobs:
               java-version: '17'
               distribution: 'temurin'
 
-          # Пример однолинейного простого скрипта shell
+          - name: Grant execute permissions to Gradle wrapper
+            run: chmod +x gradlew
+      
+          - name: Validate Gradle wrapper
+            uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
+      
           - name: Run test
-            run: UserTest.java
+            run: ./gradlew test
+      
+          - name: Generate JaCoCo Badge
+            uses: cicirello/jacoco-badge-generator@v2
+            with:
+                jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
