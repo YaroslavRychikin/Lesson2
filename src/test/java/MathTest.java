@@ -2,10 +2,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 
-class UserTest {
+class MathTest {
     @Test
     void sum() {
-        int expected = User.Sum(10, 15);
+        int expected = Math.Sum(10, 15);
         assertEquals(expected, 25);
     }
 }
